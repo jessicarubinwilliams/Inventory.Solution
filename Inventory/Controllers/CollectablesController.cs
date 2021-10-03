@@ -53,5 +53,20 @@ namespace Inventory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Delete(int id)
+    {
+      var thisCollectible = _db.Collectables.FirstOrDefault(collectible => collectible.CollectibleId == id);
+      return View(thisCollectible);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisCollectible = _db.Collectables.FirstOrDefault(collectible => collectible.CollectibleId == id);
+      _db.Collectables.Remove(thisCollectible);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
