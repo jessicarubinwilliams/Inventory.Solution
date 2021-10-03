@@ -3,17 +3,15 @@
 }
 
 @using Inventory.Models;
+@model List<Inventory.Models.Collectible>;
 
 <h1>Collectables</h1>
 
-@if (@Model.Count == 0)
-{
-  <h3>No collectables have been added yet!</h3>
-} 
-
-@foreach (Collectible collectible in Model)
-{
-  <li>@collectible.Name</li>
-}
+<ul>
+  @foreach(Collectible collectible in Model)
+  {
+      <li>@Html.ActionLink($"{collectible.Name}", "Details", new { id = collectible.CollectibleId })</li>
+  }
+</ul>
 
 <p>@Html.ActionLink("Add new collectible", "Create")</p>
