@@ -19,5 +19,18 @@ namespace Inventory.Controllers
       List<Collectible> model = _db.Collectables.ToList();
       return View(model);
     }
+
+    public ActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Collectible collectible)
+    {
+        _db.Collectables.Add(collectible);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
   }
 }
