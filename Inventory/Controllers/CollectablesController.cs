@@ -32,5 +32,11 @@ namespace Inventory.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+        Collectible thisCollectible = _db.Collectables.FirstOrDefault(collectible => collectible.CollectibleId == id);
+        return View(thisCollectible);
+    }
   }
 }
