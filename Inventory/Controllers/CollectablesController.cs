@@ -17,7 +17,7 @@ namespace Inventory.Controllers
 
     public ActionResult Index()
     {
-      List<Collectible> model = _db.Collectables.ToList();
+      List<Collectible> model = _db.Collectables.Include(collectible => collectible.Collection).ToList();
       return View(model);
     }
 
