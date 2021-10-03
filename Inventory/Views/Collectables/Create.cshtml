@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Inventory.Models.Collectible
+
+<h4>Add a new collectible</h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <input type="submit" value="Add new collectible" />
+}
+<p>@Html.ActionLink("Show all collectables", "Index")</p>
