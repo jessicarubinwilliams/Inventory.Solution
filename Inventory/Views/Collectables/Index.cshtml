@@ -7,12 +7,15 @@
 
 <h1>Collectables</h1>
 
-<ul>
-  @foreach(Collectible collectible in Model)
-  {
-      <li>@Html.ActionLink($"{collectible.Name}", "Details", new { id = collectible.CollectibleId })</li>
-  }
-</ul>
+@if (@Model.Count == 0)
+{
+  <h3>No collectables have been added yet!</h3>
+} 
+
+@foreach(Collectible collectible in Model)
+{
+  <li>@Html.ActionLink($"{collectible.Name}", "Details", new { id = collectible.CollectibleId }) | @collectible.Collection.Name </li>
+}
 
 <p>@Html.ActionLink("Add new collectible", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
