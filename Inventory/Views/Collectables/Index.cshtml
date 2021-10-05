@@ -12,7 +12,7 @@
   <h3>No collectables have been added yet!</h3>
 } 
 
-@foreach(Collectible collectible in Model)
+@foreach (Collectible collectible in Model)
 {
   <li>@Html.ActionLink($"{collectible.Name}", "Details", new { id = collectible.CollectibleId }) | @collectible.Collection.Name </li>
 }
