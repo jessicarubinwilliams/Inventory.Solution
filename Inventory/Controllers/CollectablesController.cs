@@ -1,8 +1,10 @@
 using Inventory.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+
 
 namespace Inventory.Controllers
 {
@@ -23,7 +25,9 @@ namespace Inventory.Controllers
 
     public ActionResult Create()
     {
-      return View();
+      ViewBag.CollectionId = new SelectList(_db.Collections, "CollectionId", "Name");
+
+      return View(); 
     }
 
     [HttpPost]
@@ -43,6 +47,7 @@ namespace Inventory.Controllers
     public ActionResult Edit(int id)
     {
       var thisCollectible = _db.Collectables.FirstOrDefault(collectible => collectible.CollectibleId == id);
+      ViewBag.CollectionId = new SelectList(_db.Collections, "CollectionId", "Name");
       return View(thisCollectible);
     }
 
