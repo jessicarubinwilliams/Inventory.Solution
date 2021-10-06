@@ -42,20 +42,22 @@ This web-based application allows a user to track their collections and the coll
 
 ### Import and connect the database
 * Launch the MySQL server with the command `mysql -uroot -p[YOUR-PASSWORD-HERE]`
-* Open MySQL Workbench and select the __Navigator>Administration__ tab.
-* Under the Navigator>Administration window, select __Data Import/Restore__; the Data Import view will open.
-* In the __Import Options__ section, select __Import from Self-Contained File__.
-* Click the dots at the end of the __Import from Self-Contained__ file field (three dots for windows, two dots for Mac) and navigate to the jessicawilliams.sql file in the root directory (Inventory/).
-* In the __Default Schema to be Imported To__ section, there is a __Default Target Schema__ with a drop box. To the right of the drop box, select the __New__ button and a pop up box will appear. In the pop up box, name the database `inventory`. Click ok.
-* Click __Start Import__ at the bottom right corner of the window (If on a Mac the __Start Import__ button will be in the same view. If on a Windows machine firt change to the __Import Progress__ tab to access the __Start Import__ button).
-* Re-open the __Navigator>Schemas__ tab, right click and select __Refresh All__; the new database will appear. 
+* After the server starts running, open MySQL Workbench. *If at any point you have trouble finding a referenced portion of the workbench, make sure to expand the application window to full size.
+* Select the MySQL instance in the _MySQLConnections_ section.
+* Select the __Navigator>Administration__ tab.
+* In the Navigator>Administration window, select __Data Import/Restore__; the Data Import window will open.
+* In the __Import Options__ section of the Data Import window, select __Import from Self-Contained File__.
+* Click the dots at the end of the __Import from Self-Contained__ file field (three dots for windows, two dots for Mac) and a pop up box will open. In the pop up box, navigate to the jessicawilliams.sql file in the root directory of the project (Inventory.Solution/). Once correct file is selected, click open. The pop up box will close itself.
+* In the __Default Schema to be Imported To__ section of the Data Import window, there is a __Default Target Schema__ drop box. To the right of the drop box, select the __New__ button and a pop up box will appear. In the pop up box, name the schema (i.e the databasen structure) `inventory`. Click __OK__.
+* Click __Start Import__ at the bottom right corner of the window (If on a Mac the __Start Import__ button will be in the same view. If on a Windows machine first change to the __Import Progress__ tab to access the __Start Import__ button).
+* Once import is complete, navigate to the workbench's __Navigator>Schemas__ tab, right click within the Schemas window and select __Refresh All__; the new database will appear. 
 * In your terminal, navigate to the production project directory with the command `$ cd Inventory.Solution/Inventory`
-* Create a file to store your connection string for connecting the project to the database with the command `touch appsettings.json`
+* In your terminal, create a file within the project in which to store your connection string for connecting the project to the database with the command `touch appsettings.json`
 * In your text editor add the following code to the newly created appsettings.json file. *Note that uid and pwd may vary depending on your local MySql configurations.
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=jessicawilliams.sql;uid=root;pwd=[YOUR-PASSWORD-HERE];"
+    "DefaultConnection": "Server=localhost;Port=3306;database=inventory.sql;uid=root;pwd=[YOUR-PASSWORD-HERE];"
   }
 }
 ```
