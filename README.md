@@ -38,7 +38,7 @@ This web-based application allows a user to track their collections and the coll
 
 ### Clone the project
 * Navigate to the directory inside of which you wish to house this project
-* Clone this project with the command `$ git clone <https://github.com/jessicarubinwilliams/Inventory.Solution>`
+* Clone this project with the command `$ git clone https://github.com/jessicarubinwilliams/Inventory.Solution`
 
 ### Import and connect the database
 * Launch the MySQL server with the command `mysql -uroot -p[YOUR-PASSWORD-HERE]`
