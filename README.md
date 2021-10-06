@@ -48,7 +48,7 @@ This web-based application allows a user to track their collections and the coll
 * In the Navigator>Administration window, select __Data Import/Restore__; the Data Import window will open.
 * In the __Import Options__ section of the Data Import window, select __Import from Self-Contained File__.
 * Click the dots at the end of the __Import from Self-Contained__ file field (three dots for windows, two dots for Mac) and a pop up box will open. In the pop up box, navigate to the jessicawilliams.sql file in the root directory of the project (Inventory.Solution/). Once correct file is selected, click open. The pop up box will close itself.
-* In the __Default Schema to be Imported To__ section of the Data Import window, there is a __Default Target Schema__ drop box. To the right of the drop box, select the __New__ button and a pop up box will appear. In the pop up box, name the schema (i.e the databasen structure) `inventory`. Click __OK__.
+* In the __Default Schema to be Imported To__ section of the Data Import window, there is a __Default Target Schema__ drop box. To the right of the drop box, select the __New__ button and a pop up box will appear. In the pop up box, name the schema (i.e the databasen structure) `jessica_williams`. Click __OK__.
 * Click __Start Import__ at the bottom right corner of the window (If on a Mac the __Start Import__ button will be in the same view. If on a Windows machine first change to the __Import Progress__ tab to access the __Start Import__ button).
 * Once import is complete, navigate to the workbench's __Navigator>Schemas__ tab, right click within the Schemas window and select __Refresh All__; the new database will appear. 
 * In your terminal, navigate to the production project directory with the command `$ cd Inventory.Solution/Inventory`
@@ -57,7 +57,7 @@ This web-based application allows a user to track their collections and the coll
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=inventory.sql;uid=root;pwd=[YOUR-PASSWORD-HERE];"
+    "DefaultConnection": "Server=localhost;Port=3306;database=jessica_williams.sql;uid=root;pwd=[YOUR-PASSWORD-HERE];"
   }
 }
 ```
