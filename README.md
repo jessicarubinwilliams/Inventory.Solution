@@ -57,7 +57,7 @@ This web-based application allows a user to track their collections and the coll
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=jessica_williams.sql;uid=root;pwd=[YOUR-PASSWORD-HERE];"
+    "DefaultConnection": "Server=localhost;Port=3306;database=jessica_williams;uid=root;pwd=[YOUR-PASSWORD-HERE];"
   }
 }
 ```
