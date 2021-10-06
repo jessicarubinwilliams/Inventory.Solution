@@ -4,7 +4,7 @@
 
 #### By **Alex Goldberg, Shane Graff, Sisi Vieira, and Jessica Williams**
 
-#### Table of Contents
+## Table of Contents
 
 1. [Technologies Used](#technologies)
 2. [Description](#description)
@@ -27,18 +27,31 @@
 
 ## Description <a id="description"></a>
 
-This web-based application allows a user to track their collections and the collectables that make up those collections. Users may create multiple collections and associate specific collectables with a collection.
+This web-based application allows a user to track their collections and the collectables that make up those collections. Users may create multiple collections and associate specific collectables with a collection. Users' data is stored in a SQL database.
 
 ## Setup/Installation Requirements <a id="setup"></a>
 
+### Install C#, .NET, MySQL Community Server and MySQL Workbench
 * Open the terminal on your local machine
 * If [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) and [.NET](https://docs.microsoft.com/en-us/dotnet/) are not installed on your local device, follow the instructions [here](https://www.learnhowtoprogram.com/c-and-net-part-time-c-and-react-track/getting-started-with-c/installing-c-and-net)
 * If [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) and [MySQL Workbench](https://www.mysql.com/products/workbench/) are not installed on your local device, follow the instructions [here](https://www.learnhowtoprogram.com/c-and-net-part-time-c-and-react-track/getting-started-with-c/installing-and-configuring-mysql)
+
+### Clone the project
 * Navigate to the directory inside of which you wish to house this project
-* Clone this project with the following git command `$ git clone <https://github.com/jessicarubinwilliams/Inventory.Solution>`
-* Navigate to the production project directory with the command `$ cd Inventory.Solution/Inventory`
-* Create a file to store your connection string for connecting the project to the database with the git command `touch appsettings.json`
-* In your text editor add the following code to the newly created appsettings.json file. *Note that uid and pwd may vary depending on MySql configurations.
+* Clone this project with the command `$ git clone <https://github.com/jessicarubinwilliams/Inventory.Solution>`
+
+### Import and connect the database
+* Launch the MySQL server with the command `mysql -uroot -p[YOUR-PASSWORD-HERE]`
+* Open MySQL Workbench and select the __Navigator>Administration__ tab.
+* Under the Navigator>Administration window, select __Data Import/Restore__; the Data Import view will open.
+* In the __Import Options__ section, select __Import from Self-Contained File__.
+* Click the dots at the end of the __Import from Self-Contained__ file field (three dots for windows, two dots for Mac) and navigate to the jessicawilliams.sql file in the root directory (Inventory/).
+* In the __Default Schema to be Imported To__ section, there is a __Default Target Schema__ with a drop box. To the right of the drop box, select the __New__ button and a pop up box will appear. In the pop up box, name the database `inventory`. Click ok.
+* Click __Start Import__ at the bottom right corner of the window (If on a Mac the __Start Import__ button will be in the same view. If on a Windows machine firt change to the __Import Progress__ tab to access the __Start Import__ button).
+* Re-open the __Navigator>Schemas__ tab, right click and select __Refresh All__; the new database will appear. 
+* In your terminal, navigate to the production project directory with the command `$ cd Inventory.Solution/Inventory`
+* Create a file to store your connection string for connecting the project to the database with the command `touch appsettings.json`
+* In your text editor add the following code to the newly created appsettings.json file. *Note that uid and pwd may vary depending on your local MySql configurations.
 ```
 {
   "ConnectionStrings": {
@@ -47,9 +60,7 @@ This web-based application allows a user to track their collections and the coll
 }
 ```
 
--> IMPORT DATABASE
-* First, we need to ensure the MySQL server is running by opening __Terminal__ or __Windows PowerShell__ and entering the command `mysql -uroot -p[YOUR-PASSWORD-HERE]`
-* In MySQL Workbench, select the __Navigator>Administration__ tab. Under the Navigator>Administration window, select __Data Import/Restore__ and you'll open a Data Import view. In the __Import Options__ section, select __Import from Self-Contained File__. Press the three dots for windows (two dots for Mac) icon at the end of the __Import from Self-Contained__ file field and navigate to the jessicawilliams.sql file in the root directory (Inventory/). In the __Default Schema to be Imported To__ section, there is a __Default Target Schema__ with a drop box. To the right of the drop box, select the New button and a pop up box will appear. In the pop up box, name the database `inventory`. Click ok. Click __Start Import__ at the bottom right corner of the window (If on a Mac the __Start Import__ button will be in the same view. If on a Windows machine change to the __Import Progress__ tab to access the __Start Import__ button). Re-open the __Navigator>Schemas__ tab, right click and select __Refresh All__; the new database will appear. 
+### Run the project
 * Recreate project environment and install required dependencies with terminal command `$ dotnet restore`
 * Run the program in the console with the command `$ dotnet run`
 
